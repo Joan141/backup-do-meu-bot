@@ -29,13 +29,13 @@ Você pode encontrar a lista de comandos disponíveis com /help.
 HELP_STRINGS = """
 Olá! Meu nome é *{}*.
 Eu sou *lindo*
-*Main* Comandos disponiveis:
+Comandos disponiveis:
  - /start: iniciar o bot
  - /help: PM's esta mensagem.
  - /help <module name>: PM você informações sobre esse módulo.
  - /settings:
-   - in PM: will send you your settings for all supported modules.
-   - in a group: will redirect you to pm, with all that chat's settings.
+   - in PM: enviará suas configurações para todos os módulos suportados.
+   - in a group: o redirecionará para a tarde, com todas as configurações desse bate-papo.
 {}
 And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")

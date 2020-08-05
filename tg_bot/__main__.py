@@ -18,14 +18,12 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-Hi {}, my name is {}! 
-I am an Anime themed group management bot with some fun extras [;)](https://telegra.ph/file/095d7e696096e21b06447.jpg)
+Oi {}, meu nome e {}! 
+eu sou o primeiro bot do joan estou aprendendo ainda :)
 
-You can find the list of available commands with /help.
+Você pode encontrar a lista de comandos disponíveis com /help.
 
-[Kigyō's Repo](https://github.com/Dank-del/EnterpriseALRobot) 
-
-The support group chat is at @YorktownEagleUnion
+@joandobin
 """
 
 HELP_STRINGS = """
@@ -34,9 +32,9 @@ I'm a part of *Eagle Union*
 Have a look at the following for an idea of some of \
 the things I can help you with.
 *Main* commands available:
- - /start: start the bot
- - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
+ - /start: iniciar o bot
+ - /help: PM's esta mensagem.
+ - /help <module name>: PM você informações sobre esse módulo.
  - /settings:
    - in PM: will send you your settings for all supported modules.
    - in a group: will redirect you to pm, with all that chat's settings.
@@ -45,7 +43,7 @@ And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 
-KIGYO_IMG = "https://telegra.ph/file/e5100e06c03767af80023.jpg"
+KIGYO_IMG = "https://telegra.ph/file/eae4541c664fc0bb32d2a.jpg"
 
 DONATE_STRING = """I'm free for everyone!! """
 
@@ -137,10 +135,10 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(KIGYO_IMG,
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Add Kigyō to your group",
+                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Me adicionar em seu grupo",
                                                                        url="t.me/{}?startgroup=true".format(bot.username))]]))
     else:
-        update.effective_message.reply_text("Yo, whadup?")
+        update.effective_message.reply_text("estou online gostosa :)")
 
 
 # for test purposes

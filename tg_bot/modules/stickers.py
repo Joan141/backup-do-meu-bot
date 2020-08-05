@@ -40,7 +40,7 @@ def getsticker(bot: Bot, update: Update):
         bot.send_document(chat_id, document=open('sticker.png', 'rb'))
         os.remove("sticker.png")
     else:
-        update.effective_message.reply_text("Please reply to a sticker for me to upload its PNG.")
+        update.effective_message.reply_text("Responda a um adesivo para que eu faça o upload do PNG.")
 
 
 @run_async
@@ -105,7 +105,7 @@ def steal(bot: Bot, update: Update, args: List[str]):
             bot.add_sticker_to_set(user_id=user.id, name=packname,
                                     png_sticker=open('stolensticker.png', 'rb'), emojis=sticker_emoji)
             msg.reply_text(f"Sticker adicionado com sucesso a o [pack](t.me/addstickers/{packname})" +
-                            f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
+                            f"\nEmoji: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
         except OSError as e:
             msg.reply_text("Eu so posso kangar imagens.")
             print(e)
@@ -118,7 +118,7 @@ def steal(bot: Bot, update: Update, args: List[str]):
                 bot.add_sticker_to_set(user_id=user.id, name=packname,
                                         png_sticker=open('stolensticker.png', 'rb'), emojis=sticker_emoji)
                 msg.reply_text(f"Sticker adicionado com sucesso a o [pack](t.me/addstickers/{packname})" +
-                                f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
+                                f"\nEmoji: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
             elif e.message == "Invalid sticker emojis":
                 msg.reply_text("Invalid emoji(s).")
             elif e.message == "Stickers_too_much":
@@ -173,7 +173,7 @@ def steal(bot: Bot, update: Update, args: List[str]):
                 bot.add_sticker_to_set(user_id=user.id, name=packname,
                                         png_sticker=open('stolensticker.png', 'rb'), emojis=sticker_emoji)
                 msg.reply_text("Sticker adicionado com sucesso a o [pack](t.me/addstickers/%s)" % packname + "\n" +
-                            "Emoji is:" + " " + sticker_emoji, parse_mode=ParseMode.MARKDOWN)
+                            "Emoji:" + " " + sticker_emoji, parse_mode=ParseMode.MARKDOWN)
             elif e.message == "Invalid sticker emojis":
                 msg.reply_text("Invalid emoji(s).")
             elif e.message == "Stickers_too_much":

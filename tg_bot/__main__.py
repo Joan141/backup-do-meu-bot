@@ -27,11 +27,9 @@ Você pode encontrar a lista de comandos disponíveis com /help.
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.
-I'm a part of *Eagle Union*
-Have a look at the following for an idea of some of \
-the things I can help you with.
-*Main* commands available:
+Olá! Meu nome é *{}*.
+Eu sou *lindo*
+*Main* Comandos disponiveis:
  - /start: iniciar o bot
  - /help: PM's esta mensagem.
  - /help <module name>: PM você informações sobre esse módulo.

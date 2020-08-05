@@ -71,7 +71,7 @@ def steal(bot: Bot, update: Update, args: List[str]):
         elif msg.reply_to_message.document:
             file_id = msg.reply_to_message.document.file_id
         else:
-            msg.reply_text("Yea, I can't steal that.")
+            msg.reply_text("Sim, eu não posso roubar isso.")
         stolen_file = bot.get_file(file_id)
         stolen_file.download('stolensticker.png')
         if args:
@@ -104,10 +104,10 @@ def steal(bot: Bot, update: Update, args: List[str]):
                 im.save(stolensticker, "PNG")
             bot.add_sticker_to_set(user_id=user.id, name=packname,
                                     png_sticker=open('stolensticker.png', 'rb'), emojis=sticker_emoji)
-            msg.reply_text(f"Sticker successfully added to [pack](t.me/addstickers/{packname})" +
+            msg.reply_text(f"Sticker adicionado com sucesso a o [pack](t.me/addstickers/{packname})" +
                             f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
         except OSError as e:
-            msg.reply_text("I can only steal images, dude.")
+            msg.reply_text("Eu so posso kangar imagens.")
             print(e)
             return
         except TelegramError as e:
@@ -117,14 +117,14 @@ def steal(bot: Bot, update: Update, args: List[str]):
                 im.save(stolensticker, "PNG")
                 bot.add_sticker_to_set(user_id=user.id, name=packname,
                                         png_sticker=open('stolensticker.png', 'rb'), emojis=sticker_emoji)
-                msg.reply_text(f"Sticker successfully added to [pack](t.me/addstickers/{packname})" +
+                msg.reply_text(f"Sticker adicionado com sucesso a o [pack](t.me/addstickers/{packname})" +
                                 f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
             elif e.message == "Invalid sticker emojis":
                 msg.reply_text("Invalid emoji(s).")
             elif e.message == "Stickers_too_much":
                 msg.reply_text("Max packsize reached.")
             elif e.message == "Internal Server Error: sticker set not found (500)":
-                msg.reply_text("Sticker successfully added to [pack](t.me/addstickers/%s)" % packname + "\n"
+                msg.reply_text("Sticker adicionado com sucesso a o [pack](t.me/addstickers/%s)" % packname + "\n"
                             "Emoji is:" + " " + sticker_emoji, parse_mode=ParseMode.MARKDOWN)
             print(e)
     elif args:
@@ -159,10 +159,10 @@ def steal(bot: Bot, update: Update, args: List[str]):
             msg.reply_photo(photo=open('stolensticker.png', 'rb'))
             bot.add_sticker_to_set(user_id=user.id, name=packname,
                                     png_sticker=open('stolensticker.png', 'rb'), emojis=sticker_emoji)
-            msg.reply_text(f"Sticker successfully added to [pack](t.me/addstickers/{packname})" +
+            msg.reply_text(f"Sticker adicionado com sucesso a o [pack](t.me/addstickers/{packname})" +
                             f"\nEmoji is: {sticker_emoji}", parse_mode=ParseMode.MARKDOWN)
         except OSError as e:
-            msg.reply_text("I can only steal images, dude.")
+            msg.reply_text("Eu só posso roubar imagens, cara.")
             print(e)
             return
         except TelegramError as e:
@@ -172,18 +172,18 @@ def steal(bot: Bot, update: Update, args: List[str]):
                 im.save(stolensticker, "PNG")
                 bot.add_sticker_to_set(user_id=user.id, name=packname,
                                         png_sticker=open('stolensticker.png', 'rb'), emojis=sticker_emoji)
-                msg.reply_text("Sticker successfully added to [pack](t.me/addstickers/%s)" % packname + "\n" +
+                msg.reply_text("Sticker adicionado com sucesso a o [pack](t.me/addstickers/%s)" % packname + "\n" +
                             "Emoji is:" + " " + sticker_emoji, parse_mode=ParseMode.MARKDOWN)
             elif e.message == "Invalid sticker emojis":
                 msg.reply_text("Invalid emoji(s).")
             elif e.message == "Stickers_too_much":
                 msg.reply_text("Max packsize reached.")
             elif e.message == "Internal Server Error: sticker set not found (500)":
-                msg.reply_text("Sticker successfully added to [pack](t.me/addstickers/%s)" % packname + "\n"
+                msg.reply_text("Sticker adicionado com sucesso a o [pack](t.me/addstickers/%s)" % packname + "\n"
                             "Emoji is:" + " " + sticker_emoji, parse_mode=ParseMode.MARKDOWN)
             print(e)
     else:
-        packs = "Please reply to a sticker or image to steal it to your pack!\nOh by the way, here are your packs:\n"
+        packs = "Por favor, responda a um adesivo ou imagem para roubá-lo ao seu pacote!\nOh a propósito, aqui estão seus pacotes:\n"
         if packnum > 0:
             firstpackname = "a" + str(user.id) + "_by_"+bot.username
             for i in range(0, packnum + 1):
@@ -210,27 +210,27 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
                                              emojis=emoji)
     except TelegramError as e:
         print(e)
-        if e.message == "Sticker set name is already occupied":
-            msg.reply_text("Your pack can be found [here](t.me/addstickers/%s)" % packname,
+        if e.message == "O nome dos adesivos já está ocupado":
+            msg.reply_text("Seu pacote pode ser encontrado [here](t.me/addstickers/%s)" % packname,
                            parse_mode=ParseMode.MARKDOWN)
         elif e.message == "Peer_id_invalid":
             msg.reply_text("Contact me in PM first.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
                 text="Start", url=f"t.me/{bot.username}")]]))
         elif e.message == "Internal Server Error: created sticker set not found (500)":
-                msg.reply_text("Sticker pack successfully created! Get it [here](t.me/addstickers/%s)" % packname,
+                msg.reply_text("Pacote de adesivos criado com sucesso! Consiga [aqui](t.me/addstickers/%s)" % packname,
                        parse_mode=ParseMode.MARKDOWN)
         return
 
     if success:
-        msg.reply_text("Sticker pack successfully created! Get it [here](t.me/addstickers/%s)" % packname,
+        msg.reply_text("Pacote de adesivos criado com sucesso! Consiga [aqui](t.me/addstickers/%s)" % packname,
                        parse_mode=ParseMode.MARKDOWN)
     else:
-        msg.reply_text("Failed to create sticker pack.")
+        msg.reply_text("Falha ao criar o pacote de adesivos.")
 
 
 STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid)
 GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker)
-STEAL_HANDLER = DisableAbleCommandHandler("steal", steal, pass_args=True, admin_ok=False)
+STEAL_HANDLER = DisableAbleCommandHandler("kang", steal, pass_args=True, admin_ok=False)
 
 dispatcher.add_handler(STICKERID_HANDLER)
 dispatcher.add_handler(GETSTICKER_HANDLER)

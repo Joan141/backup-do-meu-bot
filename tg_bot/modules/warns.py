@@ -39,7 +39,7 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
 
     if user.id in WHITELIST_USERS:
         if warner:
-            message.reply_text("Neptunia Nations are warn immune.")
+            message.reply_text("Nações de Netuno são avisadas imunes.")
         else:
             message.reply_text("Neptunia Nation triggered an auto warn filter!\n I can't warn Neptunians but they should avoid abusing this.")
         return
@@ -77,7 +77,7 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
         keyboard = InlineKeyboardMarkup([{InlineKeyboardButton("Remove warn",
                                                                callback_data="rm_warn({})".format(user.id))}])
 
-        reply = f"{mention_html(user.id, user.first_name)} has {num_warns}/{limit} warnings... watch out!"
+        reply = f"{mention_html(user.id, user.first_name)} has {num_warns}/{limit} vc foi avisado!"
         if reason:
             reply += f"\nReason for last warn:\n{html.escape(reason)}"
 
@@ -160,7 +160,7 @@ def reset_warns(bot: Bot, update: Update, args: List[str]) -> str:
 
     if user_id:
         sql.reset_warns(user_id, chat.id)
-        message.reply_text("Warns have been reset!")
+        message.reply_text("Os avisos foram redefinidos!")
         warned = chat.get_member(user_id).user
         return (f"<b>{html.escape(chat.title)}:</b>\n"
                 f"#RESETWARNS\n"

@@ -106,7 +106,7 @@ def get(bot, update, notename, show_none=True, no_format=False):
                     LOGGER.warning("Message was: %s", str(note.value))
         return
     elif show_none:
-        message.reply_text("This note doesn't exist")
+        message.reply_text("Essa nota n existe!")
 
 
 @run_async
@@ -175,7 +175,7 @@ def list_notes(bot: Bot, update: Update):
     chat_id = update.effective_chat.id
     note_list = sql.get_all_chat_notes(chat_id)
 
-    msg = "*Notes in chat:*\n"
+    msg = "*Notas no chat para conseguir #nomedanota:*\n"
     for note in note_list:
         note_name = escape_markdown(f" - {note.name}\n")
         if len(msg) + len(note_name) > MAX_MESSAGE_LENGTH:

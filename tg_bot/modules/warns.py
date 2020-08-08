@@ -77,7 +77,7 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
         keyboard = InlineKeyboardMarkup([{InlineKeyboardButton("Remover aviso",
                                                                callback_data="rm_warn({})".format(user.id))}])
 
-        reply = f"{mention_html(user.id, user.first_name)} has {num_warns}/{limit} vc foi avisado!"
+        reply = f"{mention_html(user.id, user.first_name)} tem {num_warns}/{limit} vc foi avisado!"
         if reason:
             reply += f"\nReason for last warn:\n{html.escape(reason)}"
 
@@ -143,7 +143,7 @@ def warn_user(bot: Bot, update: Update, args: List[str]) -> str:
         else:
             return warn(chat.get_member(user_id).user, chat, reason, message, warner)
     else:
-        message.reply_text("That looks like an invalid User ID to me.")
+        message.reply_text("n tem ngm com esse id n kkk.")
     return ""
 
 

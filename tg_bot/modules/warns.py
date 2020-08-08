@@ -74,7 +74,7 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
                       f"<b>Counts:</b> <code>{num_warns}/{limit}</code>")
 
     else:
-        keyboard = InlineKeyboardMarkup([{InlineKeyboardButton("Remove warn",
+        keyboard = InlineKeyboardMarkup([{InlineKeyboardButton("Remover aviso",
                                                                callback_data="rm_warn({})".format(user.id))}])
 
         reply = f"{mention_html(user.id, user.first_name)} has {num_warns}/{limit} vc foi avisado!"
@@ -193,7 +193,7 @@ def warns(bot: Bot, update: Update, args: List[str]):
         else:
             update.effective_message.reply_text(f"User has {num_warns}/{limit} warns, but no reasons for any of them.")
     else:
-        update.effective_message.reply_text("This user doesn't have any warns!")
+        update.effective_message.reply_text("Esse usuario n tem nenhum aviso!")
 
 
 # Dispatcher handler stop - do not async

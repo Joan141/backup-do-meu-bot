@@ -34,7 +34,7 @@ def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
         return reply
 
     if is_user_admin(chat, user_id, member) or user_id in SARDEGNA_USERS:
-        reply = "I really wish I could mute admins...Perhaps a Punch?"
+        reply = "Eu n posso mutar adms fdp!"
         return reply
 
     return None
@@ -74,7 +74,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
         return log
 
     else:
-        message.reply_text("This user is already muted!")
+        message.reply_text("Esse usuario ja esta mutado!")
 
     return ""
 
@@ -142,7 +142,7 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
     member = chat.get_member(user_id)
 
     if not reason:
-        message.reply_text("You haven't specified a time to mute this user for!")
+        message.reply_text("Você não especificou um tempo para silenciar este usuário!")
         return ""
 
     split_reason = reason.split(None, 1)

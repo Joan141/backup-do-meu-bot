@@ -36,11 +36,11 @@ def no_longer_afk(bot: Bot, update: Update):
             '{} esta aqui!',
             '{} voltou!',
             '{} esta online agora!',
-            '{} is awake!',
-            '{} is back online!',
-            '{} is finally here!',
-            'Welcome back!, {}',
-            'Where is {}?\nIn the chat!'
+            '{} esta acordado!',
+            '{} voltou do modo baino!',
+            '{} está finalmente aqui!',
+            'bem vindo de volta!, {}',
+            'Voltou {}?\para o grupo!'
         ]
         chosen_option = random.choice(options)
         update.effective_message.reply_text(chosen_option.format(update.effective_user.first_name))

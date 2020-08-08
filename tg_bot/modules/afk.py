@@ -20,7 +20,7 @@ def afk(bot: Bot, update: Update):
         reason = args[1]
 
     sql.set_afk(update.effective_user.id, reason)
-    update.effective_message.reply_text("{} is away from keyboard !".format(update.effective_user.first_name))
+    update.effective_message.reply_text("{} Esta em afk agora!".format(update.effective_user.first_name))
 
 
 @run_async
@@ -33,9 +33,9 @@ def no_longer_afk(bot: Bot, update: Update):
     res = sql.rm_afk(user.id)
     if res:
         options = [
-            '{} is here!',
-            '{} is back!',
-            '{} is now in the chat!',
+            '{} esta aqui!',
+            '{} voltou!',
+            '{} esta online agora!',
             '{} is awake!',
             '{} is back online!',
             '{} is finally here!',

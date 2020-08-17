@@ -108,7 +108,7 @@ def unmute(bot: Bot, update: Update, args: List[str]) -> str:
                                      can_send_media_messages=True,
                                      can_send_other_messages=True,
                                      can_add_web_page_previews=True)
-            bot.sendMessage(chat.id, f"I shall allow <b>{html.escape(member.user.first_name)}</b> to text!",
+            bot.sendMessage(chat.id, f"Vou aceitar que ele mande <b>{html.escape(member.user.first_name)}</b> uma mensagem!",
                             parse_mode=ParseMode.HTML)
             return (f"<b>{html.escape(chat.title)}:</b>\n"
                     f"#UNMUTE\n"
@@ -178,7 +178,7 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text(f"Muted for {time_val}!", quote=False)
+            message.reply_text(f"Mutado {time_val}!", quote=False)
             return log
         else:
             LOGGER.warning(update)

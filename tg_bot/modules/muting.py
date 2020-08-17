@@ -108,7 +108,7 @@ def unmute(bot: Bot, update: Update, args: List[str]) -> str:
                                      can_send_media_messages=True,
                                      can_send_other_messages=True,
                                      can_add_web_page_previews=True)
-            bot.sendMessage(chat.id, f"Vou aceitar que ele mande <b>{html.escape(member.user.first_name)}</b> uma mensagem!",
+            bot.sendMessage(chat.id, f"Vou aceitar que o <b>{html.escape(member.user.first_name)}</b> mande uma mensagem!",
                             parse_mode=ParseMode.HTML)
             return (f"<b>{html.escape(chat.title)}:</b>\n"
                     f"#UNMUTE\n"
